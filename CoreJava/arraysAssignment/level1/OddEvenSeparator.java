@@ -1,0 +1,47 @@
+package arrays;
+import java.util.Scanner;
+
+class OddEvenSeparator {
+    public static void main(String[] args) {
+        int number;
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a positive integer (Natural Number): ");
+        number = input.nextInt();
+
+        if (number < 1) {
+            System.out.println("Error: Please enter a natural number (1 or greater).");
+            input.close();
+            return;
+        }
+
+        int[] evenNumbers = new int[number / 2 + 1];
+        int[] oddNumbers = new int[number / 2 + 1];
+
+        int evenIndex = 0;
+        int oddIndex = 0;
+
+        for (int i = 1; i <= number; i++) {
+            if (i % 2 == 0) {
+                evenNumbers[evenIndex] = i;
+                evenIndex++;
+            } else {
+                oddNumbers[oddIndex] = i;
+                oddIndex++;
+            }
+        }
+
+        System.out.print("\nEven numbers up to " + number + ": ");
+        for (int i = 0; i < evenIndex; i++) {
+            System.out.print(evenNumbers[i] + " ");
+        }
+
+        System.out.print("\nOdd numbers up to " + number + ": ");
+        for (int i = 0; i < oddIndex; i++) {
+            System.out.print(oddNumbers[i] + " ");
+        }
+        System.out.println();
+        
+        input.close();
+    }
+}
